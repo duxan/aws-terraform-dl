@@ -92,6 +92,8 @@ resource "aws_instance" "jupyter" {
     inline = [
       "chmod +x /tmp/script.sh",
       "/tmp/script.sh",
+      "jupyter notebook --NotebookApp.token='' --no-browser &",
+      "sleep 300"
     ]
   }
 
@@ -107,24 +109,3 @@ resource "aws_instance" "jupyter" {
     Stack       = "AWS Deep Learning instance with Jupyter"
   }
 }
-
-/*
-resource "aws_ebs_volume" "jupyter" {
-  availability_zone = var.availability_zone
-  size              = var.ebs_volume_size
-  type              = "gp2"
-
-  tags = {
-    Name        = "jupyter-${timestamp()}_Anaconda3"
-    ManagedBy   = "terraform"
-    Stack       = "AWS Deep Learning instance with Jupyter"
-  }
-}
-
-resource "aws_volume_attachment" "jupyter" {
-  device_name  = "/dev/conda"
-  instance_id  = aws_instance.jupyter.id
-  volume_id    = aws_ebs_volume.jupyter.id
-  force_detach = true
-}
-*/

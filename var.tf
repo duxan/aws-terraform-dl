@@ -7,15 +7,9 @@ variable "availability_zone" {
 }
 
 variable "ami_name" {
-  default = "Deep Learning *"
+  default = "Deep Learning AMI (Ubuntu 18.04) *"
 }
 
 variable "instance_type" {
   default = "p2.xlarge"
-}
-
-variable "ebs_volume_size" {
-  type        = string
-  default     = "50"
-  description = "The Amazon EBS volume size (1 GB - 16 TB)."
 }
