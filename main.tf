@@ -92,8 +92,7 @@ resource "aws_instance" "jupyter" {
     inline = [
       "chmod +x /tmp/script.sh",
       "/tmp/script.sh",
-      "jupyter notebook --NotebookApp.token='' --no-browser &",
-      "sleep 300"
+      "jupyter notebook --NotebookApp.token='' --no-browser &"
     ]
   }
 
