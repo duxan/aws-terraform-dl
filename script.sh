@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# update conda
-conda update -y -n base conda
+sleep 300
 
 # Configure Jupyter
 yes | sudo runuser -l ubuntu -c 'jupyter notebook --generate-config' &&

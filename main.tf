@@ -75,6 +75,12 @@ resource "aws_instance" "jupyter" {
   key_name               = aws_key_pair.generated_key.key_name
   vpc_security_group_ids = [aws_security_group.jupyter.id]
 
+  root_block_device {
+    volume_type           = "gp2"
+    volume_size           = "160"
+    delete_on_termination = "true"
+  }
+
   connection {
     type        = "ssh"
     host        = self.public_dns
